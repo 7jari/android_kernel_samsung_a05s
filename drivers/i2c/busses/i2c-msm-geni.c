@@ -2179,7 +2179,7 @@ static int geni_i2c_xfer(struct i2c_adapter *adap,
 		/* Ensure FIFO write go through before waiting for Done evet */
 		mb();
 		timeout = wait_for_completion_timeout(&gi2c->xfer,
-						gi2c->xfer_timeout);
+						(gi2c->xfer_timeout*5));
 		if (!timeout) {
 			u32 geni_ios = 0;
 			u32 m_stat = readl_relaxed(gi2c->base + SE_GENI_M_IRQ_STATUS);

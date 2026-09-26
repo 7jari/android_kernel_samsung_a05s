@@ -1205,7 +1205,7 @@ static int fastrpc_mmap_create(struct fastrpc_file *fl, int fd, struct dma_buf *
 			ADSPRPC_ERR("Invalid attribute 0x%x for fd %d\n", map->attr, fd);
 			err = -EINVAL;
 			goto bail;
-		}
+		}		
 		VERIFY(err, !IS_ERR_OR_NULL(map->buf = dma_buf_get(fd)));
 		if (err) {
 			ADSPRPC_ERR("dma_buf_get failed for fd %d ret %ld\n",
